@@ -1,113 +1,158 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+
+import 'modals/material.dart';
+
+// const NESTED_JSON = '[ { "id_": 2391, "class_": "Сплав прецизионный сверхпроводящий", "name_": "35БТ", "add_": "Критическая плотность тока в поперечном магнитном поле 3,2·106 А\/м при 4,2К JК= (3—6)·104 А\/см2. Хорошо деформируется, можно изготовлять из него тонкую проволоку, ленту, сверхпроводящие композиционные материалы с большим количеством жил (до 361).", "use_": "Для изготовления сверхпроводящих экранов магнитного поля, для токопроводов сверхпроводящих магнитных систем.", "replace_": null, "chem_": "C_до 0.03|Ti_60-64|Zr_1.7-4.3|Nd_33.5-36.5" }, { "id_": 2393, "class_": "Сплав прецизионный сверхпроводящий", "name_": "70ТМ-ВД", "add_": "Сплав обладает узким сверхпроводящим переходом при 4,5 К, ширина не более 0,2 К, верхним критическим полем, (0,2±0,02) Т высоким удельным электросопротивлением 1,0 мкОм·м, слабоменяющимся с температурой (относительное изменение его в диапазоне от -16 до +24 К не превышает 30%). Изготавливается в виде проволоки диаметром 0,25—0,35 мм в медной оболочке.", "use_": "Для изготовления датчиков температуры; уровнемеров жидкого гелия.", "replace_": null, "chem_": "C_до 0.03|Ti_73.5-76|Fe_до 2.5|Mo_24-26" }, { "id_": 2392, "class_": "Сплав прецизионный сверхпроводящий", "name_": "БТЦ-ВД", "add_": "Критический ток на единицу ширины холоднокатаной ленты толщиной 20 мкм и шириной 90—100 мм не ниже (8,5—9,0)·104 А\/м, температура сверхпроводящего перехода 8,5—9,0 К, временное сопротивление разрыву 100—110 Н\/мм2.", "use_": "Для изготовления сверхпроводниковых топологических генераторов коммутаторов в системах ввода и вывода энергии сверхпроводящих магнитов; криогенных конструкций.", "replace_": null, "chem_": "C_до 0.03|Ti_0.07-0.2|Zr_0.2-1|N_до 0.005|Nb_98.76-99.73|O_до 0.005" }, { "id_": 692, "class_": "Сплав прецизионный магнитно-мягкий", "name_": "16Х", "add_": "Сплав с высокой индукцией в слабых и средних полях и низкой коэрцитивной силой; с коррозионной стойкостью в ряде кислотных и агрессивных сред.", "use_": "Для магнитопроводов различных систем управления якорей и электромагнитов; деталей электрических машин без защитных покрытий, работающих в сложных условиях воздействия среды, температуры и давления;", "replace_": null, "chem_": "C_до 0.015|Si_до 0.2|Mn_до 0.3|Ni_до 0.3|S_до 0.015|P_до 0.015|Cr_15.5-16.5" }, { "id_": 688, "class_": "Сплав прецизионный магнитно-мягкий", "name_": "27КХ", "add_": "Сплав с высокой индукцией от 24 кгс в средних и сильных полях, высокой точкой Кюри 950 °С и повышенными механическими свойствами.", "use_": "Для изготовления роторов и статоров электрических машин и других магнитопроводов, работающих при обычных и высоких температурах и в условиях механических нагрузок.", "replace_": null, "chem_": "C_до 0.04|Si_до 0.25|Mn_0.2-0.4|Ni_до 0.3|S_до 0.015|P_до 0.015|Cr_0.3-0.6|Co_26.5-28" }]';
+const NESTED_JSON = '''
+[
+    {
+        "id_": 2391,
+        "class_": "Сплав прецизионный сверхпроводящий",
+        "name_": "35БТ",
+        "add_": "Критическая плотность тока в поперечном магнитном поле 3,2·106 А\/м при 4,2К JК= (3—6)·104 А\/см2. Хорошо деформируется, можно изготовлять из него тонкую проволоку, ленту, сверхпроводящие композиционные материалы с большим количеством жил (до 361).",
+        "use_": "Для изготовления сверхпроводящих экранов магнитного поля, для токопроводов сверхпроводящих магнитных систем.",
+        "replace_": null,
+        "chem_": "C_до 0.03|Ti_60-64|Zr_1.7-4.3|Nd_33.5-36.5"
+    },
+    {
+        "id_": 2393,
+        "class_": "Сплав прецизионный сверхпроводящий",
+        "name_": "70ТМ-ВД",
+        "add_": "Сплав обладает узким сверхпроводящим переходом при 4,5 К, ширина не более 0,2 К, верхним критическим полем, (0,2±0,02) Т высоким удельным электросопротивлением 1,0 мкОм·м, слабоменяющимся с температурой (относительное изменение его в диапазоне от -16 до +24 К не превышает 30%). Изготавливается в виде проволоки диаметром 0,25—0,35 мм в медной оболочке.",
+        "use_": "Для изготовления датчиков температуры; уровнемеров жидкого гелия.",
+        "replace_": null,
+        "chem_": "C_до 0.03|Ti_73.5-76|Fe_до 2.5|Mo_24-26"
+    },
+    {
+        "id_": 2392,
+        "class_": "Сплав прецизионный сверхпроводящий",
+        "name_": "БТЦ-ВД",
+        "add_": "Критический ток на единицу ширины холоднокатаной ленты толщиной 20 мкм и шириной 90—100 мм не ниже (8,5—9,0)·104 А\/м, температура сверхпроводящего перехода 8,5—9,0 К, временное сопротивление разрыву 100—110 Н\/мм2.",
+        "use_": "Для изготовления сверхпроводниковых топологических генераторов коммутаторов в системах ввода и вывода энергии сверхпроводящих магнитов; криогенных конструкций.",
+        "replace_": null,
+        "chem_": "C_до 0.03|Ti_0.07-0.2|Zr_0.2-1|N_до 0.005|Nb_98.76-99.73|O_до 0.005"
+    },
+    {
+        "id_": 692,
+        "class_": "Сплав прецизионный магнитно-мягкий",
+        "name_": "16Х",
+        "add_": "Сплав с высокой индукцией в слабых и средних полях и низкой коэрцитивной силой; с коррозионной стойкостью в ряде кислотных и агрессивных сред.",
+        "use_": "Для магнитопроводов различных систем управления якорей и электромагнитов; деталей электрических машин без защитных покрытий, работающих в сложных условиях воздействия среды, температуры и давления;",
+        "replace_": null,
+        "chem_": "C_до 0.015|Si_до 0.2|Mn_до 0.3|Ni_до 0.3|S_до 0.015|P_до 0.015|Cr_15.5-16.5"
+    },
+    {
+        "id_": 688,
+        "class_": "Сплав прецизионный магнитно-мягкий",
+        "name_": "27КХ",
+        "add_": "Сплав с высокой индукцией от 24 кгс в средних и сильных полях, высокой точкой Кюри 950 °С и повышенными механическими свойствами.",
+        "use_": "Для изготовления роторов и статоров электрических машин и других магнитопроводов, работающих при обычных и высоких температурах и в условиях механических нагрузок.",
+        "replace_": null,
+        "chem_": "C_до 0.04|Si_до 0.25|Mn_0.2-0.4|Ni_до 0.3|S_до 0.015|P_до 0.015|Cr_0.3-0.6|Co_26.5-28"
+    },
+    {
+        "id_": 670,
+        "class_": "Сплав прецизионный магнитно-мягкий",
+        "name_": "34НКМ",
+        "add_": "Сплав с магнитной текстурой и прямоугольной петлей гистерезиса, высокой магнитной проницаемостью и индукцией насыщения не менее 1,2—1,5 Т.",
+        "use_": "Для изготовления сердечников магнитных усилителей, коммутирующих дросселей, выпрямительных установок, элементов вычислительных аппаратов счетно-решающих машин.",
+        "replace_": null,
+        "chem_": "C_до 0.03|Fe_30.83-34.75|Mo_2.8-3.2|Si_0.15-0.3|Mn_0.3-0.6|Ni_33.5-35|S_до 0.02|P_до 0.02|Co_28.5-30"
+    },
+    {
+        "id_": 685,
+        "class_": "Сплав прецизионный магнитно-мягкий",
+        "name_": "36КНМ",
+        "add_": "С 01.01.1991 сплав не допускается к применению во вновь создаваемой и модернизируемой технике.",
+        "use_": "Для магнитопроводов, работающих в морской воде; Сплав с высокой индукцией в слабых и средних полях и низкой коэрцитивной силой; с высокой коррозионной стойкостью в морской воде.",
+        "replace_": null,
+        "chem_": "C_до 0.03|Fe_29.93-35.1|Si_0.8-1.2|Mn_0.3-0.6|Ni_35-37|S_до 0.02|P_до 0.02|Cr_1.8-2.2|Co_27-29"
+    }
+        
+]
+''';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+class MyHomePage extends StatelessWidget {
+  Future<List<Material_>> getDataFromFakeServer() async {
+    return await Future.delayed(Duration(seconds: 2), () {
+      List<dynamic> data = jsonDecode(NESTED_JSON);
+      List<Material_> material = data.map((data) => Material_.fromJson(data)).toList();
+      return material;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+    return SafeArea(
+
+      child: Scaffold(
+        appBar: AppBar(title: Text("Json Serialization"),),
+        body: Container(
+          child: FutureBuilder<List<Material_>>(
+              future: getDataFromFakeServer(),
+              builder: (context, data) {
+                if (data.connectionState != ConnectionState.waiting && data.hasData) {
+                  var userList = data.data;
+                  return ListView.builder(
+                      itemCount: userList.length,
+                      itemBuilder: (context, index) {
+                        var userData = userList[index];
+                        return ExpansionTile(
+                          key: Key("$index"),
+                          title: Text(userData.name_ ?? ""),
+                          subtitle: Text(userData.class_ ?? ""),
+
+                          children: <Widget>[
+                            Container(
+                              color: Colors.grey.withAlpha(55),
+                              width: double.infinity,
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text("Street: "),
+                                    SizedBox(height: 5,),
+                                    Text("Landmark: "),
+                                    SizedBox(height: 5,),
+                                    Text("City: "),
+                                    SizedBox(height: 5,),
+                                    Text("State: "),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        );
+                      });
+                } else {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
