@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   Future<List<Material_>> getDataFromFakeServer() async {
     return await Future.delayed(Duration(seconds: 1), () {
-      List<dynamic> data = jsonDecode(Constant.MATERIAL_BIG);
+      List<dynamic> data = jsonDecode(Constant.MATERIAL_SHORT);
       List<Material_> material =
           data.map((data) => Material_.fromJson(data)).toList();
       return material;
