@@ -54,10 +54,10 @@ class MyHomePage extends StatelessWidget {
                       itemCount: categoryList.length,
                       itemBuilder: (context, index) {
                         var categoryData = categoryList[index];
-                        return ExpansionTile(
+                        return ListTile(
                           key: Key("$index"),
                           title: Text(categoryData.category_ ?? ""),
-                          subtitle: Text("categoryData.class_ ?? " ""),
+                          // subtitle: Text("categoryData.class_ ?? " ""),
                         );
                       });
                 } else {
