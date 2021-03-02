@@ -1,7 +1,10 @@
-class Constant{
+class Constant {
+
+  static const String TAG = "_>__>__>__>__>_";
+  static const APP_NAME = 'Material';
 
 
-  static const MATERIAL_SHORT= '''
+  static const MATERIAL_SHORT = '''
   [
   {
     "id_": 2867,
