@@ -1,7 +1,9 @@
+import 'package:Materials/example/tab_nav/presentation/tabs/page/tab_page.dart';
 import 'package:flutter/material.dart';
-import 'package:materials/constant.dart';
-import 'package:materials/flutter_read_json/read_json_home.dart';
-import 'package:materials/read_json_to_model/read_json_to_model.dart';
+
+
+import 'constant.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -19,7 +21,8 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // home: ReadJsonLocal(),
-      home: ReadJsonToModel(),
+      // home: HomePage(),
+      home: TabsPage(),
     );
   }
 }

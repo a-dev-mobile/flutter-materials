@@ -3,8 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:materials/constant.dart';
-import 'services.dart';
-import 'model/material.dart';
+import 'package:materials/model/material.dart';
+
+import '../../services.dart';
+
+
 
 class ReadJsonToModel extends StatefulWidget {
   @override
