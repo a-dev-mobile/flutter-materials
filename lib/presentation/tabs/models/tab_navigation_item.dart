@@ -1,6 +1,7 @@
-import 'package:Materials/example/tab_nav/presentation/home/page/home_page.dart';
-import 'package:Materials/example/tab_nav/presentation/search/pages/search_page.dart';
-import 'package:Materials/example/tab_nav/presentation/shop/page/shop_page.dart';
+
+import 'package:Materials/presentation/home/page/home_page.dart';
+import 'package:Materials/presentation/search/pages/search_page.dart';
+import 'package:Materials/presentation/shop/page/shop_page.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigationItem {

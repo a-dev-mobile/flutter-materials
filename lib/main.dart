@@ -1,4 +1,5 @@
-import 'package:Materials/example/tab_nav/presentation/tabs/page/tab_page.dart';
+
+import 'package:Materials/presentation/tabs/page/tab_page.dart';
 import 'package:flutter/material.dart';
 
 

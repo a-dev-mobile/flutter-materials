@@ -1,4 +1,5 @@
-import 'package:Materials/example/tab_nav/presentation/tabs/models/tab_navigation_item.dart';
+
+import 'package:Materials/presentation/tabs/models/tab_navigation_item.dart';
 import 'package:flutter/material.dart';
 
 class TabsPage extends StatefulWidget {

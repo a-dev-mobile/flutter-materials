@@ -1,31 +1,30 @@
 import 'dart:convert';
 
+import 'package:Materials/model/material.dart';
+import 'package:Materials/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:materials/constant.dart';
-import 'package:materials/model/material.dart';
 
-import '../../services/services.dart';
+import '../../../constant.dart';
 
+class HomePage extends StatefulWidget {
+  static Route<dynamic> route() =>
+      MaterialPageRoute(builder: (context) => HomePage());
 
-
-class ReadJsonToModel extends StatefulWidget {
   @override
-  _ReadJsonToModelState createState() => _ReadJsonToModelState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _ReadJsonToModelState extends State<ReadJsonToModel> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var d=10;
-
+    var d = 10;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(Constant.APP_NAME),
       ),
       body: Container(
-
         child: FutureBuilder<List<MaterialModel>>(
             future: Services.getMaterials(),
             builder: (context, data) {

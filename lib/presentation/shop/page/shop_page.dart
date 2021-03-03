@@ -1,4 +1,5 @@
-import 'package:Materials/example/tab_nav/presentation/product_detail/pages/product_detail_page.dart';
+
+import 'package:Materials/presentation/product_detail/pages/product_detail_page.dart';
 import 'package:flutter/material.dart';
 
 
